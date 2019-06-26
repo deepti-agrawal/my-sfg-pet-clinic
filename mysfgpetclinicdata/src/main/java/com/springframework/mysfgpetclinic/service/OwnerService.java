@@ -1,4 +1,8 @@
 package com.springframework.mysfgpetclinic.service;
 
-public interface OwnerService {
+import com.springframework.mysfgpetclinic.model.Owner;
+
+public interface OwnerService extends CrudService<Owner,Long> {
+
+    public Owner findOwnerByLastName(String lastName);
 }
