@@ -1,31 +1,31 @@
 package com.springframework.mysfgpetclinic.service.map;
 
-import com.springframework.mysfgpetclinic.model.Pet;
-import com.springframework.mysfgpetclinic.service.PetService;
+import com.springframework.mysfgpetclinic.model.Visit;
+import com.springframework.mysfgpetclinic.service.VisitService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class VisitServiceMap extends AbstractMapService<Visit,Long> implements VisitService {
 
     @Override
-    public Set<Pet> findAll() {
+    public Set<Visit> findAll() {
         return super.findall();
     }
 
     @Override
-    public Pet save(Pet object) {
+    public Visit save(Visit object) {
         return super.save(object);
     }
 
     @Override
-    public Pet findById(Long id) {
+    public Visit findById(Long id) {
         return super.findById(id);
     }
 
     @Override
-    public void delete(Pet object) {
+    public void delete(Visit object) {
         super.delete(object);
     }
 
