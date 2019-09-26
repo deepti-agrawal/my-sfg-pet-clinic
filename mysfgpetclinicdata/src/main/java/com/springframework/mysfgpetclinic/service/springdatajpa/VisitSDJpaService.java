@@ -1,0 +1,48 @@
+package com.springframework.mysfgpetclinic.service.springdatajpa;
+
+import com.springframework.mysfgpetclinic.model.Visit;
+import com.springframework.mysfgpetclinic.repositaries.VisitRepository;
+import com.springframework.mysfgpetclinic.service.VisitService;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
+import java.util.Set;
+
+@Service
+@Primary
+public class VisitSDJpaService implements VisitService {
+
+    private final VisitRepository visitRepository;
+
+    public VisitSDJpaService(VisitRepository visitRepository) {
+        this.visitRepository = visitRepository;
+    }
+
+    @Override
+    public Set<Visit> findAll() {
+        Set<Visit> visits = new HashSet<>();
+        visitRepository.findAll().iterator().forEachRemaining(visits::add);
+        return visits;
+    }
+
+    @Override
+    public Visit save(Visit object) {
+        return visitRepository.save(object);
+    }
+
+    @Override
+    public Visit findById(Long aLong) {
+        return visitRepository.findById(aLong).orElse(null);
+    }
+
+    @Override
+    public void delete(Visit object) {
+        visitRepository.delete(object);
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+        visitRepository.deleteById(aLong);
+    }
+}

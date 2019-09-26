@@ -5,12 +5,14 @@ import com.springframework.mysfgpetclinic.repositaries.OwnerRepository;
 import com.springframework.mysfgpetclinic.repositaries.PetRepository;
 import com.springframework.mysfgpetclinic.repositaries.PetTypeRepository;
 import com.springframework.mysfgpetclinic.service.OwnerService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Primary
 public class OwnerSDJpaService implements OwnerService {
 
     private final OwnerRepository  ownerRepository;
@@ -25,7 +27,7 @@ public class OwnerSDJpaService implements OwnerService {
 
     @Override
     public Owner findOwnerByLastName(String lastName) {
-        return null;
+        return ownerRepository.findOwnerByLastName(lastName);
     }
 
     @Override
