@@ -14,11 +14,17 @@ import java.time.LocalDate;
 @Table(name = "visits")
 public class Visit extends BaseEntity {
 
-    @Column(name="visit_date")
+    @Column(name = "date")
     private LocalDate date;
+
     @Column(name = "description")
     private String description;
+
     @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
+
+    public LocalDate getDate() {
+        return date;
+    }
 }

@@ -1,17 +1,20 @@
 package com.springframework.mysfgpetclinic.controllers;
 
 import com.springframework.mysfgpetclinic.model.Owner;
+import com.springframework.mysfgpetclinic.model.Pet;
 import com.springframework.mysfgpetclinic.model.PetType;
 import com.springframework.mysfgpetclinic.service.OwnerService;
 import com.springframework.mysfgpetclinic.service.PetService;
 import com.springframework.mysfgpetclinic.service.PetTypeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 @Controller
@@ -45,7 +48,7 @@ public class PetController {
         dataBinder.setDisallowedFields("id");
     }
 
-   /* @GetMapping("/pets/new")
+    @GetMapping("/pets/new")
     public String initCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
@@ -87,6 +90,5 @@ public class PetController {
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
-    }*/
-
+    }
 }
