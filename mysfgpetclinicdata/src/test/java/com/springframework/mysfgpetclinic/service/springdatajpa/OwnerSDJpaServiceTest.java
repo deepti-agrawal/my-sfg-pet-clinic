@@ -57,7 +57,6 @@ class OwnerSDJpaServiceTest {
         Set<Owner> returnOwnersSet = new HashSet<>();
         returnOwnersSet.add(Owner.builder().id(1l).build());
         returnOwnersSet.add(Owner.builder().id(2l).build());
-
         when(ownerRepository.findAll()).thenReturn(returnOwnersSet);
         Set<Owner> owners = service.findAll();
         assertNotNull(owners);
@@ -77,7 +76,6 @@ class OwnerSDJpaServiceTest {
         Owner owner = service.findById(1L);
         assertNull(owner);
     }
-
 
     @Test
     void save() {
